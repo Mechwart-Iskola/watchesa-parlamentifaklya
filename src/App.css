@@ -144,6 +144,10 @@ body.dark-theme {
   color: var(--title-color);
 }
 
+.nav__item {
+  list-style: none;
+}
+
 .dark-theme::-webkit-scrollbar {
   background: hsl(0, 0%, 30%);
 }

@@ -15,16 +15,16 @@ function App() {
   return (
     <>
       <Header></Header>
-       <main className='main'>
-          <Home></Home>
-          <Featured></Featured>
-          <Story></Story>
-          <Products></Products>
-          <NewSletter></NewSletter>
-          <Testimonial></Testimonial>
-          <New></New>
-       </main>
-          <Footer></Footer>
+      <main className='main'>
+        <Home></Home>
+        <Featured></Featured>
+        <Story></Story>
+        <Products></Products>
+        <NewSletter></NewSletter>
+        <Testimonial></Testimonial>
+        <New></New>
+      </main>
+      <Footer></Footer>
     </>
   )
 }

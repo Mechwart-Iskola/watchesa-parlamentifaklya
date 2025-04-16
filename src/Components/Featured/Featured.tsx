@@ -1,22 +1,34 @@
-
+import { useEffect, useState } from 'react'
 import './featured.css'
-
-import FeatureCard from './featuredCard/FeatureCard'
-
-{/* Fetcheld be az adatokat a featured jsonból és jelenítsd meg a featured_container elemből*/}
-
-{/* Állítsd be a featured.css-ben, hogy az órák 992px szélesség alatt egymás alá kerüljenek a fölött pedig egymás mellé */}
-
+import FeatureCard, { Watch } from './featuredCard/FeatureCard'
 
 const Featured = () => {
 
-
-
+  const [watches, setWatches] = useState<Watch[]>([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch("featured.json");
+        if (!res.ok) {
+          console.error("Network error!")
+        }
+        const data = await res.json();
+        setWatches(data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    
+    fetchData();
+  }, [])
+  
   return (
     <section className="featured" id="featured">
     <h2 className="feature__title">Featured</h2>
     <div className="featured__container">
-            {/* feauterd watches */}
+      {watches.map((item, idx) => (
+        <FeatureCard id={idx} title={item.title} price={item.price} image={item.image}/>
+      ))}
     </div>
 </section>
   )

@@ -1,18 +1,27 @@
-
+import { useState, useEffect } from 'react';
+import { Watch } from '../Featured/featuredCard/FeatureCard';
 import './products.css'
-
 import ProductsCard from './ProductsCard/ProductsCard'
 
-{/* Fetcheld be az adatokat a products jsonból és jelenítsd meg a products__container elemben*/}
-
-/*Az alábbiakat állítsd be a producst.css-ben */
-/* 767px alatt egy sorban 2 óra jelenjen meg */
-/* 767px felett egy sorban egyszerre 3 óra jelenjen meg */
-/* 992px felett egy sorban egyszerre 4 óra jelenjen meg */
-
-/* 767 px alatt 2rem a fölöt 3rem legyen a rész az elemek között */
-
 const Products = () => {
+
+  const [watches, setWatches] = useState<Watch[]>([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch("products.json");
+        if (!res.ok) {
+          console.error("Network error!")
+        }
+        const data = await res.json();
+        setWatches(data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    
+    fetchData();
+  }, [])
 
   return (
     <section className="products container" id="products">
@@ -21,7 +30,9 @@ const Products = () => {
     </h2>
 
     <div className="products__container">
-      
+      {watches.map((item, idx) => (
+        <ProductsCard id={idx} title={item.title} price={item.price} image={item.image}/>
+      ))}
     </div>
 </section>
   )

@@ -16,8 +16,8 @@
 }
 
 .newsletter__subscribe {
-
-
+    display: flex;
+    flex-direction: column;
     row-gap: .75rem;
 }
 
@@ -44,19 +44,22 @@
 
 @media screen and (min-width: 767px) {
     .newsletter__bg {
+        display: grid;
         grid-template-columns: repeat(2, 1fr);
         align-items: center;
-    }
-
-    .newsletter__bg {
-        text-align: initial;
         column-gap: 2rem;
+        text-align: initial;
         padding: 4.5rem;
     }
 
-    .newsletter__subscribe {}
+    .newsletter__subscribe {
+        flex-direction: row;
+        align-items: center;
+        column-gap: .75rem;
+    }
 
     .newsletter__input {
-        width: 100%;
+        width: auto;
+        flex: 1;
     }
 }
