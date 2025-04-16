@@ -31,7 +31,7 @@ const Products = () => {
 
     <div className="products__container">
       {watches.map((item, idx) => (
-        <ProductsCard id={idx} title={item.title} price={item.price} image={item.image}/>
+        <ProductsCard key={idx} title={item.title} price={item.price} image={item.image}/>
       ))}
     </div>
 </section>

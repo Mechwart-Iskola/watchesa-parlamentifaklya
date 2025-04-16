@@ -1,7 +1,6 @@
 import './featurecard.css'
 
 export type Watch = {
-  id: number,
   title: string,
   price: string,
   image: string,
@@ -9,7 +8,7 @@ export type Watch = {
 
 const FeatureCard = (props : Watch) => {
   return (
-    <div className="featured__card" key={props.id}>
+    <div className="featured__card">
         <span className="featured__tag">Sale</span>
     
         <img src={props.image} alt="" className="featured__img"/>

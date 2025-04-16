@@ -3,7 +3,7 @@ import './productscard.css'
 
 const ProductsCard = (props: Watch) => {
   return (
-    <article key={props.id} className="products__card">
+    <article className="products__card">
             <img src={props.image} alt="" className="products__img"/>
 
             <h3 className="products__title">{props.title}</h3>

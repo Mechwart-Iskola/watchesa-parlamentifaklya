@@ -27,7 +27,7 @@ const Featured = () => {
     <h2 className="feature__title">Featured</h2>
     <div className="featured__container">
       {watches.map((item, idx) => (
-        <FeatureCard id={idx} title={item.title} price={item.price} image={item.image}/>
+        <FeatureCard key={idx} title={item.title} price={item.price} image={item.image}/>
       ))}
     </div>
 </section>
